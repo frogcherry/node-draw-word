@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<project name="draw_word" basedir="." default="all">
+	<description>
+		draw_word project 
+    </description>
+	<property name="clientJs" value="clientJs" />
+	<property name="css" value="css" />
+	<property name="images" value="images" />
+	<property name="lib" value="libs" />
+	<property name="node_modules" value="node_modules" />
+	<property name="serverJs" value="serverJs" />
+	<property name="htmls" value="home.html, login.html, room.html, stat.html" />
+	<property name="dist" value="dist" />
+	<property name="dist_zip" value="${dist}/draw_word.zip" />
+
+	<target name="clean">
+		<delete dir="${dist}" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${dist}" />
+	</target>
+
+	<target name="zip" depends="init">
+		<zip destfile="${dist_zip}">
+			<fileset dir="." includes="${htmls}, ${clientJs}, ${css}, ${images}, ${lib}, ${node_modules}, ${serverJs}" />
+		</zip>
+	</target>
+
+	<target name="all" depends="clean, zip"/>
+</project>
