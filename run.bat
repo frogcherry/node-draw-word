@@ -1,0 +1,1 @@
+node ./serverJs/fcServer.js

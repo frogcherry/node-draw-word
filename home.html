@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>画画猜猜--游戏大厅</title>
+<script type="text/javascript" src="libs/jquery.min.js"></script>
+<script type="text/javascript" src="libs/json2.js"></script>
+<link href="css/draw_word.css" rel="stylesheet" type="text/css">
+<link href="css/home.css" rel="stylesheet" type="text/css">
+<link href="css/scroll.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="clientJs/scroll.js"></script>
+<script type="text/javascript" src="libs/jquery.ellipsis.js"></script>
+<script type="text/javascript" src="clientJs/home.js"></script>
+<script type="text/javascript" src="clientJs/pagedebug.js"></script>
+<script type="text/javascript" src="libs/jquery.fcDialog/fcDialog.js"></script>
+<link href="libs/jquery.fcDialog/fcDialog.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+<div class="user_card" id="my_card" style="position:absolute; top:10px; left:10px;">
+  <div class="card_face" id="cmf"><img src="images/ali/ali04_m.jpg" width="50" height="50"></div>
+  <div class="card_info card_name" id="myc_name">Loading</div>
+  <div class="card_info card_state" id="myc_state">Loading...</div>
+  <div class="card_info card_score" id="myc_score">Loading...</div>
+</div>
+<div align="center"><img src="images/title3.png" width="340" height="85"></div>
+<hr>
+
+<div class="page" style="background-color:#6A683C; width:800px; height:500px">
+  <div id="room">
+      <div class="content" id="roomContent">
+      Loading...
+      </div>
+  </div>
+</div>
+
+<div id="userlist">
+<div id="listhead">
+<div id="listtitle" onMouseDown="listDown(event);" onMouseUp="listUp(event);">
+画画猜猜
+<input type="button" class="btn_opt btn_opt_min" id="btn_min" value="—"
+        onmouseover="btnOn('#btn_min');" onMouseOut="btnOff('#btn_min');">
+</div>
+<div id="listmycard">
+<div class="user_card" id="l_my_card">
+  <div class="card_face" id="l_cmf"><img src="images/ali/ali04_m.jpg" width="50" height="50"></div>
+  <div class="card_info card_name" id="l_myc_name">Loading</div>
+  <div class="card_info card_state" id="l_myc_state">Loading...</div>
+  <div class="card_info card_score" id="l_myc_score">Loading...</div>
+</div>
+<div id="listopt">
+	<input type="button" class="btn_opt btn_opt_opt" id="btn_opt" value="首选项" 
+	   onmouseover="btnOn('#btn_opt');" onMouseOut="btnOff('#btn_opt');">
+    <input type="button" class="btn_opt btn_opt_exit" id="btn_exit" value="退出"
+        onmouseover="btnOn('#btn_exit');" onMouseOut="btnOff('#btn_exit');"
+        onclick="logout();">
+</div>
+</div>
+</div>
+<div id="scrollBoard">
+  <div id="screen">
+    <div class="content" id="listContent">
+    Loading...
+      </div>
+  </div>
+</div>
+</div>
+
+<hr>
+<div id="footer">
+Copyright &copy; 2011 ooobgy. Powered by Frogcherry.<br>
+Email: <a href="mailto:frogcherry@gmail.com">frogcherry@gmail.com</a>
+</div>
+<div class="statlk">
+  <input type="button" class="btn_blue" value="服务器概况" onClick="window.location.href='stat.html'">
+</div>
+<hr>
+</body>
+</html>

@@ -1,0 +1,47 @@
+@charset "utf-8";
+.title_logo {
+	position:absolute;
+	top:10px;
+	left:10px;
+}
+
+.title{
+	text-align:center;	
+	font-size:36px;
+}
+.label{
+	font-size:20px;
+	color:#090;
+	margin-top:10px;
+}
+
+.stat_info{
+	margin:5px 5px 5px 5px;
+}
+
+.now_stat{
+	text-align:center;
+	border-spacing:0px;
+	border:1px solid #676767;
+}
+
+.now_stat td{
+	border:1px solid #676767;
+	width:120px;
+}
+
+.hint{
+	font-size:12px;
+}
+
+#show_state{
+	color:#F30;
+}
+
+.hllab{
+	color:#F30;
+}
+
+.grf{
+	height:210px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>画画猜猜</title>
+<script type="text/javascript" src="libs/jquery.min.js"></script>
+<script type="text/javascript" src="libs/json2.js"></script>
+<script type="text/javascript" src="libs/jquery.tzCheckbox/jquery.tzCheckbox.js"></script>
+<link href="css/draw_word.css" rel="stylesheet" type="text/css">
+<link href="libs/jquery.tzCheckbox/jquery.tzCheckbox.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="clientJs/login.js"></script>
+<script type="text/javascript" src="clientJs/pagedebug.js"></script>
+<link href="css/login.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="libs/jquery.fcDialog/fcDialog.js"></script>
+<link href="libs/jquery.fcDialog/fcDialog.css" rel="stylesheet" type="text/css">
+<link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+<div align="center"><img src="images/title3.png" width="400" height="100"></div>
+<hr>
+<div class="page">
+  <div class="loginForm">
+  <div class="loginTitle">试试身手?</div>
+  <p></p>
+  <p class="loginInput">
+     <label for="name">名字:</label>
+     <input id="name" class="input" type="text" onChange="nospace('#name');">
+  </p>
+  <p id="nameInfo" class="infoN">亲，名字不能为空且要少于12字符哦</p>
+  <p class="loginInput">
+     <label for="email">邮箱:</label>
+     <input id="email" class="input" type="email" onChange="nospace('#email');">
+  </p>
+  <p id="emailInfo" class="infoN"></p>
+  <p id="hint" class="infoN">亲，&lt;名字,邮箱&gt;对是识别您的唯一标准哦</p>
+  <p id="errorInfo" class="infoN"></p>
+ <p> 
+  	<input type="checkbox" id="isRemember" name="isRemember" data-on="记住我" data-off="忘了我" checked/>
+    <input type="button" class="btn_blue" value="登录" onClick="login();">
+ </p>
+ <div class="loginSep">
+   <div class="separator"></div>
+ </div>
+ <script src=" http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=121820595" type="text/javascript" charset="utf-8"></script>
+ <div class="weiboLink">
+ <table>
+ <tr><td width="75">不推荐你:</td><td><span id="wb_connect_btn"></span></td><td><span style="font-size:10px;">连接微博账号功能还没做好呢</span></td></tr>
+ </table>
+ </div>
+  </div>
+</div>
+<div class="statlk">
+  <input type="button" class="btn_blue" value="服务器概况" onClick="window.location.href='stat.html'">
+</div>
+<hr>
+<div id="footer">
+Copyright &copy; 2011 ooobgy. Powered by Frogcherry.<br>
+Email: <a href="mailto:frogcherry@gmail.com">frogcherry@gmail.com</a>
+</div>
+</body>
+</html>

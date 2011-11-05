@@ -1,0 +1,209 @@
+@charset "utf-8";
+
+#userlist {
+	position: absolute;
+	height: 600px;
+	width: 200px;
+	left: 800px;
+	top: 60px;
+	border:#B2B2B2;
+	border-width: 1px;
+	max-height: 600px;
+	min-height: 600px;
+	overflow:hidden;
+	padding: 0 0 0 0;
+}
+
+#listhead{
+	position: relative;
+	width: 100%;
+	height:140px;
+	background:#090909;
+	border-radius: 5px 5px 0px 0px;
+	box-shadow: inset 0 0 1px #fff, inset 2px 2px 6px rgba(255,255,255,0.33), inset -2px -2px 6px rgba(255,255,255,0.25);
+}
+
+#listtitle{
+	position: relative;
+	height:25px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
+	color:#5CA416;
+	font-weight:bold;
+	padding: 5px 0 0 10px;
+	border-bottom:2px solid #808080
+}
+
+#listmycard{
+	padding: 5px 0 0 15px;
+}
+
+#listopt{
+	position: relative;
+	padding-top:5px;
+}
+
+.btn_opt {
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1px 1px;
+    text-align: center;
+    text-shadow: -1px -1px 0 #204877;
+    vertical-align: middle;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin: 0px 0px 0px 15px;
+	border-radius: 5px 5px 5px 5px;
+}
+
+.btn_opt_opt{
+	width: 48px;
+	height: 22px;
+    background: #2E1D32;
+    border: 1px solid #2F1C33;
+	box-shadow: inset 0 0 1px #fff, inset 2px 2px 6px rgba(255,255,255,0.33), inset -2px -2px 6px rgba(255,255,255,0.25);
+}
+
+.btn_opt_exit{
+	width: 32px;
+	height: 22px;
+	margin-left: 75px;
+    background: #BA010F;
+    border: 1px solid #2F1C33;
+	box-shadow: inset 0 0 1px #fff, inset 2px 2px 6px rgba(255,255,255,0.33), inset -2px -2px 6px rgba(255,255,255,0.25);
+}
+
+.btn_opt_min{
+	margin-left: 90px;
+    background: #27226A;
+    border: 1px solid #2F1C33;
+	box-shadow: inset 0 0 1px #fff, inset 2px 2px 6px rgba(255,255,255,0.33), inset -2px -2px 6px rgba(255,255,255,0.25);
+	width: 23px;
+	height: 20px;
+}
+#scrollBoard {
+	height: 400px;
+	width: 100%;
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+	border-width:0px;
+}
+
+#room {
+	width:100%;
+	height:100%;
+	overflow:auto;
+	position:relative;
+	top:0px;
+	left:0px;
+}
+
+.room{
+	margin:0 0;
+	padding:0 0;
+	min-height: 220px;
+	max-height: 220px;
+	min-width: 240px;
+	max-width: 240px;
+	border-width:0px;
+}
+.room_card{
+	position:relative;
+	min-height:50px;
+	max-height:50px;
+	max-width:35px;
+	min-width:35px;
+	margin:0 0;
+	padding:0 0;
+	text-align:center;
+	float:left;
+}
+
+.room_card_uface{
+	position:relative;
+	min-width:30px;
+	min-height:30px;
+	max-width:30px;
+	max-height:30px;
+	left:3px;
+}
+.room_card_uname{
+	position:relative;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	color:#FDFD04;
+	text-align:center;
+	line-height:10px;
+}
+
+.room_board{
+	position:relative;
+	width:158px;
+	height:139px;
+	left:46px
+}
+
+.room_u1{
+	left:15px;
+	top: -50px;
+}
+
+.room_u2{
+	left:15px;
+	top: -30px;
+}
+.room_u3{
+	left:15px;
+	top: 0px;
+}
+.room_u4{
+	left:20px;
+	top: 0px;
+}
+.room_u5{
+	left:20px;
+	top: -30px;
+}
+.room_u6{
+	left:20px;
+	top: -50px;
+}
+
+.room_id{
+	position:relative;
+	float:left;
+	background:url(../images/tag.png);
+	min-height:64px;
+	min-width:64px;
+	top: -210px;
+	text-align:center;
+}
+
+.room_id_font{
+	text-align:center;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#D30E5C;
+	font-size:24px;
+	position:relative;
+	top:23px;
+	left:-6px;
+	font-weight:bold;
+}
+
+td{
+	width: 250px;
+	height: 250px;
+	max-height:250px;
+	max-width: 250px;
+}
+
+tr{
+	height: 250px;
+	max-height:250px;
+}
+
+.room_row{
+	position:relative;
+	top: -200px;
+}

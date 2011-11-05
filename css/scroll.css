@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+#screen {
+	position: relative;
+	left: 0;
+	height: 100%;
+	top: 0px;
+	width: 100%;
+	overflow: auto;
+	background: #1B1B1B;
+	color: #fff;
+}
+
+#screen2 {
+	position: relative;
+	left: 20%;
+	height: 30%;
+	width: 60%;
+	top: 0;
+	overflow: auto;
+	background: #1C1C1C;
+	color: #fff;
+}
+
+.content {
+	position: relative;
+	font-size: 0.8em;
+	font-family: verdana;
+	color: #fff;
+	padding: 1em;
+	height: 100%;
+	padding: 12px 10px 12px 8px;
+}
+
+.cds_scrollbar {
+	position: absolute;
+	background: #555
+		url(../images/scroll/bar.gif);
+	right: 0px;
+	cursor: pointer;
+}
+
+.cds_scrollbar_over {
+	background: #aaa
+		url(../images/scroll/bar.gif);
+}
+
+.cds_scrollbar_pushed {
+	background: #fff
+		url(../images/scroll/push.gif);
+}
+
+.cds_track {
+	position: absolute;
+	background: #222
+		url(../images/scroll/track.gif);
+	right: -1px;
+	top: 0px;
+	height: 100%;
+	cursor: pointer;
+}
+
+.cds_up {
+	position: absolute;
+	background: #f60
+		url(../images/scroll/up.gif);
+	right: 0px;
+	top: 0px;
+	cursor: pointer;
+}
+
+.cds_down {
+	position: absolute;
+	background: #f60
+		url(../images/scroll/down.gif);
+	right: 0px;
+	bottom: 0px;
+	cursor: pointer;
+}
