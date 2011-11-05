@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>画画猜猜——服务器概况</title>
+<script type="text/javascript" src="libs/raphael.js"></script>
+<script type="text/javascript" src="libs/jquery.min.js"></script>
+<script type="text/javascript" src="libs/json2.js"></script>
+<script type="text/javascript" src="libs/popup.js"></script>
+<script type="text/javascript" src="clientJs/stat.js"></script>
+<script type="text/javascript" src="libs/jquery.fcDialog/fcDialog.js"></script>
+<link href="css/draw_word.css" rel="stylesheet" type="text/css">
+<link href="libs/jquery.fcDialog/fcDialog.css" rel="stylesheet" type="text/css">
+<link href="css/stat.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="title_logo"><img src="images/title3.png" width="160" height="40"></div>
+<div class="title">服务器概况</div>
+<hr>
+<div id="hint" class="hint">
+说明： 服务器每隔<span style="font-size:20px; color:#F60;">10分钟</span>收集一次信息。点击<input type="button" class="btn_blue" value="刷新当前" onClick="refreshNow();">可以<span class="hllab">更新现在的状态</span>，点击
+<input type="button" class="btn_blue" value="刷新全部" onClick="refreshAll();">可以<span class="hllab">更新所有信息</span>，点击<input type="button" class="btn_blue" id="show_btn" value="显示细节" onClick="showHideHistory();">可以<span id="show_state">显示所有历史细节</span>。
+</div>
+<div class="label">当前状态</div>
+<div id="now">
+<table class="now_stat">
+  <tr>
+    <td style="width:300px;">运行时间</td>
+    <td>当前QPS</td>
+    <td>内存</td>
+    <td>堆内存</td>
+    <td>堆用量</td>
+    <td>在线用户数</td>
+    <td>注册用户数</td>
+  </tr>
+  <tr>
+  	<td id="uptime">&nbsp;</td>
+    <td><div class="stat_info" id="qps">&nbsp;</div></td>
+    <td><div class="stat_info" id="mem">&nbsp;</div></td>
+    <td><div class="stat_info" id="heapTotal">&nbsp;</div></td>
+    <td><div class="stat_info" id="heapUsed">&nbsp;</div></td>
+    <td><div class="stat_info" id="online">&nbsp;</div></td>
+    <td><div class="stat_info" id="reg">&nbsp;</div></td>
+  </tr>
+</table>
+</div>
+<div class="label">QPS</div>
+<div id="qps_his" class="grf"></div>
+<div class="label">内存</div>
+<div id="mem_his" class="grf"></div>
+<div class="label">在线用户数</div>
+<div id="online_his" class="grf"></div>
+<hr>
+<div id="footer">
+Copyright &copy; 2011 ooobgy. Powered by Frogcherry.<br>
+Email: <a href="mailto:frogcherry@gmail.com">frogcherry@gmail.com</a>
+</div>
+</body>
+</html>
