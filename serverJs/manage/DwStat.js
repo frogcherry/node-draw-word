@@ -11,10 +11,9 @@ var DwStat = exports;
 DwStat.stats = [];
 
 DwStat.onlineUsersCnt = 0;
-DwStat.nowStat = {};
 DwStat.qps = 0;
 DwStat.pid = process.pid;
-var STAT_TIME = 10*60*1000;//10分钟做一次状态查看
+var STAT_TIME = 30*1000;//10分钟做一次状态查看
 
 DwStat.qs = 0;
 var QPS_TIME = 10*1000;//10秒钟做一次qps度量
@@ -23,26 +22,17 @@ DwStat.stat = function(callback){
 	var mem = process.memoryUsage();
 	var uptime = process.uptime();
 	mongoDao.db.user.find().count(function(err, count){
+		
+		var now = new Date().getTime();
 		var cnt = -1;
-//		console.log(count);
 		for ( var uid in gameCache.liveUsers) {
 			cnt ++;
 		}
-		var now = new Date().getTime();
-		
-		DwStat.onlineUsersCnt = cnt;
-		DwStat.nowStat["time"] = now;
-		DwStat.nowStat["qps"] = DwStat.qps,
-		DwStat.nowStat["mem"] = mem,
-		DwStat.nowStat["uptime"] = uptime,
-		DwStat.nowStat["online"] = DwStat.onlineUsersCnt,
-		DwStat.nowStat["userCnt"] = count;
-		
 		var statCxt = {"time" : now,
 				"qps" : DwStat.qps,
 				"mem" : mem,
 				"uptime" : uptime,
-				"online" : DwStat.onlineUsersCnt,
+				"online" : cnt,
 				"userCnt" : count};
 		callback(statCxt);
 	});
@@ -50,8 +40,10 @@ DwStat.stat = function(callback){
 
 function startStatDeamon(){
 	DwStat.stat(function(stat){
+		stat.online = DwStat.onlineUsersCnt;
 		DwStat.stats.push(stat);
 		DwStat.qps = 0;
+		DwStat.onlineUsersCnt = 0;
 //		console.log(stat);
 	});
 	
@@ -69,5 +61,14 @@ function startQpsDeamon(){
 		DwStat.qps = qps;
 	}
 	DwStat.qs = 0;
+	var cnt = -1;
+//	console.log(count);
+	for ( var uid in gameCache.liveUsers) {
+		cnt ++;
+	}
+	if (DwStat.onlineUsersCnt < cnt) {
+		DwStat.onlineUsersCnt = cnt;
+	}
+	
 	setTimeout(startQpsDeamon, QPS_TIME);
 }
