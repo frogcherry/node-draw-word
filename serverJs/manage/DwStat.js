@@ -13,7 +13,7 @@ DwStat.stats = [];
 DwStat.onlineUsersCnt = 0;
 DwStat.qps = 0;
 DwStat.pid = process.pid;
-var STAT_TIME = 30*1000;//10分钟做一次状态查看
+var STAT_TIME = 10*60*1000;//10分钟做一次状态查看*
 
 DwStat.qs = 0;
 var QPS_TIME = 10*1000;//10秒钟做一次qps度量
