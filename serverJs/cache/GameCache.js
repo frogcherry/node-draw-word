@@ -106,16 +106,18 @@ function Room(rid){
 	
 	this.logoutUser = function(uid){
 		var pos = GameCache.liveUsers[uid].pos;
-		this.deleteUser(uid);
 		this.pushData({"act" : "logout", "uid" : uid, "rid" : this.rid, "pos" : pos}, function(){});
-		
-		delete GameCache.liveSessions[uid];
-		delete GameCache.liveUsers[uid];
+		this.deleteUser(uid, function(){
+			delete GameCache.liveSessions[uid];
+			delete GameCache.liveUsers[uid];
+		});
 	};
 	
-	this.deleteUser = function(uid){
+	this.deleteUser = function(uid, callback){
 		if (this.userp[uid] != null) {
 			var dp = this.userp[uid];
+			var leavePos = GameCache.liveUsers[uid].pos;
+			delete this.poses[leavePos];
 			//user离开进行小型buff GC
 			while (dp < this.tbp) {
 				dp ++;
@@ -127,9 +129,7 @@ function Room(rid){
 				}
 			}
 			
-			var leavePos = GameCache.liveUsers[uid].pos;
 			
-			delete this.poses[leavePos];
 			delete this.userp[uid];
 			this.userCnt -= 1;
 			this.pushData({"act":"leave",
@@ -146,6 +146,10 @@ function Room(rid){
 				if (game != null) {
 					game.checkUser(leavePos);
 				}
+			}
+			
+			if (callback) {
+				callback();
 			}
 		}
 	};
@@ -451,12 +455,12 @@ GameCache.sessionGC = function() {
 					var rid = GameCache.liveUsers[uid].rid;
 					var pos = GameCache.liveUsers[uid].pos;
 					var room = GameCache.rooms[rid];
-					room.deleteUser(uid);//为了实现简单，广播放在deleteUser中,deleteUser会触发buff GC
 					
 					GameCache.rooms["00"].pushData({"act" : "logout", "uid" : uid, "rid" : rid, "pos" : pos}, function(){});
-					
-					delete GameCache.liveSessions[uid];
-					delete GameCache.liveUsers[uid];
+					room.deleteUser(uid, function(){
+						delete GameCache.liveSessions[uid];
+						delete GameCache.liveUsers[uid];
+					});//为了实现简单，广播放在deleteUser中,deleteUser会触发buff GC
 				}
 			} else {//session半超时，发送心跳请求。<半断开>
 				var res = GameCache.liveSessions[uid]["res"];

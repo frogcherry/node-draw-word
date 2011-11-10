@@ -31,19 +31,20 @@ JoinRoomAction.handle = function(urlObj){
 					if (oldRes != null) {//如果持有监听连接，返回close来断开
 						oldRes.simpleJSON(200, {"type" : "close"});
 					}
-					gameCache.rooms[oldRid].deleteUser(uid);//推送离开信息
-					room.joinUser(uid, pos);//注册进入
-					res.simpleJSON(200, {"type" : "permit"});
-					
-					//将移动信息推送给首页用户组
-					var userInfo = GameCache.liveUsers[uid].user;
-					GameCache.rooms["00"].pushData(
-						{"act" : "move", 
-						 "uid" : uid, 
-						 "rid" : rid, 
-						 "pos" : pos, 
-						 "uface" : userInfo.face, 
-						 "uname" : userInfo.name}, function(){});
+					gameCache.rooms[oldRid].deleteUser(uid, function(){
+						room.joinUser(uid, pos);//注册进入
+						res.simpleJSON(200, {"type" : "permit"});
+						
+						//将移动信息推送给首页用户组
+						var userInfo = GameCache.liveUsers[uid].user;
+						GameCache.rooms["00"].pushData(
+							{"act" : "move", 
+							 "uid" : uid, 
+							 "rid" : rid, 
+							 "pos" : pos, 
+							 "uface" : userInfo.face, 
+							 "uname" : userInfo.name}, function(){});
+					});//推送离开信息
 				}
 				gameCache.liveSessions[uid].heartBeat();//别忘了心跳
 			} else {
